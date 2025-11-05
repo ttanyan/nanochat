@@ -31,22 +31,24 @@ Abuse Prevention:
 """
 
 import argparse
-import json
-import os
-import torch
 import asyncio
+import json
 import logging
+import os
 import random
 from contextlib import asynccontextmanager
+from contextlib import nullcontext
+from dataclasses import dataclass
+from typing import List, Optional, AsyncGenerator
+
+import torch
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import StreamingResponse, HTMLResponse, FileResponse
 from pydantic import BaseModel
-from typing import List, Optional, AsyncGenerator
-from dataclasses import dataclass
-from contextlib import nullcontext
-from nanochat.common import compute_init, autodetect_device_type
+
 from nanochat.checkpoint_manager import load_model
+from nanochat.common import compute_init, autodetect_device_type
 from nanochat.engine import Engine
 
 # Abuse prevention limits

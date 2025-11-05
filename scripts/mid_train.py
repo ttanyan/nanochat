@@ -9,8 +9,9 @@ Or torchrun for training:
 torchrun --standalone --nproc_per_node=8 -m scripts.mid_train -- --device_batch_size=16
 """
 
-from collections import deque
 import os
+from collections import deque
+
 os.environ["PYTORCH_CUDA_ALLOC_CONF"] = "expandable_segments:True"
 import time
 import wandb

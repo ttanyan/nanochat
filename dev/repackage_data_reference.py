@@ -16,9 +16,9 @@ dataset preparation and it is not used during the project runtime.
 import os
 import time
 
-from datasets import load_dataset
-import pyarrow.parquet as pq
 import pyarrow as pa
+import pyarrow.parquet as pq
+from datasets import load_dataset
 
 # Source dataset
 dataset_kwargs = {
